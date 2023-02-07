@@ -1,7 +1,12 @@
-import { GET_ALL_CHARACTER } from "./actions";
+import { 
+  GET_ALL_CHARACTER,
+  GET_ALL,
+  GET_RANDOM } from "./actions";
 
 const initialState = {
-    allCharacters:[]
+    allCharacters:[],
+    getAll: false,
+    random:[]
 }
 
 export default function rootReducer(state=initialState, action){
@@ -11,6 +16,21 @@ export default function rootReducer(state=initialState, action){
         ...state,
         allCharacters: action.payload
       }
+      case GET_ALL:
+        const boolean = state.getAll;
+        let b;
+        if(boolean){b=false}else{b=true}
+        return{
+          ...state,
+          getAll: b
+        }
+      case GET_RANDOM:
+        const array = state.allCharacters;
+        const aleatorio = array[Math.floor(Math.random() * array.length)];
+        return{
+          ...state,
+          random:[...state.random, aleatorio]
+        }
 
     default:
       return state;

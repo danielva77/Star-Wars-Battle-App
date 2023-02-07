@@ -2,6 +2,8 @@ import axios from 'axios';
 
 //------------------------------
 export const GET_ALL_CHARACTER = "GET_ALL_CHARACTER";
+export const GET_ALL = "GET_ALL";
+export const GET_RANDOM = "GET_RANDOM";
 
 //------------------------------
 
@@ -15,3 +17,15 @@ export function getAllCharacters(){
         });
     };
 };
+
+export function getAll(){
+  return{
+      type:"GET_ALL",
+  }
+}
+
+export function getRandom(){
+    return{
+        type:"GET_RANDOM"
+    }
+}

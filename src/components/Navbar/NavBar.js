@@ -1,39 +1,37 @@
 import React from 'react';
-import {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import { getAllCharacters } from '../../redux/actions';
+import { getRandom } from '../../redux/actions';
 import SearchBar from '../Searchbar/SearchBar';
-import List from '../List/List';
+import { getAll } from '../../redux/actions';
 
 
 
 
 function NavBar() {
   const dispatch = useDispatch();
-  var allCharacter = useSelector(state => state.allCharacter)
-  console.log("HOLAAAAA", allCharacter)
+  var boolean = useSelector(state => state.getAll)
 
 
 
 
   function handleAllCharacter(e){
-    
-    dispatch(getAllCharacters());
-
-    return(
-    <div>
-      <List/>;
-    </div>)
-
+    e.preventDefault();
+    dispatch(getAll());
   }
+  function handleRandom(e){
+    e.preventDefault();
+    dispatch(getRandom())
+  }
+
+
   
   return (
     <div>
       <img src="https://cdn-icons-png.flaticon.com/512/1539/1539194.png" alt="icon" width="40px"/>
 
-      <button>Random</button>
+      <button onClick={(e) => {handleRandom(e)}}>Random</button>
 
-      <button onClick={(e) => {handleAllCharacter(e)}}>Todos los personajes</button>
+      <button onClick={(e) => {handleAllCharacter(e)}}>{boolean ? "Borrar todos los personajes" : "Mostrar todos los personajes"}</button>
 
       <SearchBar/>
 
