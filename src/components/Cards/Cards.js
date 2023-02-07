@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 function Cards() {
     let elemento= useSelector(state => state.random)
     // const reversed = elemento.reverse()
+    console.log("LLEGA A ELEMENTO", elemento)
  
     // if(elemento[0]){console.log("ELEMENTOOO", reversed[0].name)}
     if(elemento[0]){var array0 = elemento[elemento.length-1]}

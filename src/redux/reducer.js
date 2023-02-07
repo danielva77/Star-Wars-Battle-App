@@ -1,7 +1,8 @@
 import { 
   GET_ALL_CHARACTER,
   GET_ALL,
-  GET_RANDOM } from "./actions";
+  GET_RANDOM,
+  GET_NAME } from "./actions";
 
 const initialState = {
     allCharacters:[],
@@ -30,6 +31,18 @@ export default function rootReducer(state=initialState, action){
         return{
           ...state,
           random:[...state.random, aleatorio]
+        }
+      case GET_NAME:
+        const arr = state.allCharacters;
+        const filtrado = arr.filter(e => e.name.toLowerCase().includes(action.payload.toLowerCase()))
+        console.log("LO FILTRO?", filtrado)
+        if(filtrado.length !== 0){
+          return{
+          ...state,
+          random:[...state.random, filtrado[0]]
+        }
+        }else{
+          alert("Personaje no encontrado!")
         }
 
     default:

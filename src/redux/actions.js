@@ -4,6 +4,7 @@ import axios from 'axios';
 export const GET_ALL_CHARACTER = "GET_ALL_CHARACTER";
 export const GET_ALL = "GET_ALL";
 export const GET_RANDOM = "GET_RANDOM";
+export const GET_NAME = "GET_NAME";
 
 //------------------------------
 
@@ -28,4 +29,10 @@ export function getRandom(){
     return{
         type:"GET_RANDOM"
     }
+}
+export function getNameCharacter(payload){
+    return{
+        type: "GET_NAME",
+        payload,
+      };
 }
