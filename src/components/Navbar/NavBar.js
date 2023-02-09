@@ -47,7 +47,7 @@ function NavBar() {
                   <a class="nav-link" href="#navbar"><button type="button" class="btn btn-success" onClick={(e) => {handleAllCharacter(e)}}>{boolean ? "Borrar todos los personajes" : "Mostrar todos los personajes"}</button></a>
                 </li>
                 <li class="nav-item">
-                  <a href="#navbar" class="nav-link"><SearchBar/></a>
+                  <SearchBar/>
                 </li>
               </ul>
             </div>
