@@ -15,14 +15,27 @@ export default function SearchBar(){
 
     function handleSubmit(e){
       e.preventDefault();
+      if(name !== ""){
       dispatch(getNameCharacter(name));
-      setName("");
+      setName("")};
+      document.getElementById("inputSearch").value = "";
     };
 
     return(
         <div>
-            <input type="text" placeholder="Buscar ..." onChange={(e) =>{handleInputChange(e)}}/>
-            <button type="submit" onClick={(e) =>{handleSubmit(e)}}>Buscar 🔎</button>
+          <form class="d-flex" role="search">
+              <input 
+              type="search" id="inputSearch" aria-label="Search"
+              class="form-control me-2" placeholder="Buscar ..." onChange={(e) =>{handleInputChange(e)}}
+              />
+              <button class="btn btn-outline-success" id="btnSearch" type="submit" onClick={(e) =>{handleSubmit(e)}}>Buscar</button>
+            </form>
+
+            {/* <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> */}
+            
         </div>
     )
 

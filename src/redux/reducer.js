@@ -35,7 +35,7 @@ export default function rootReducer(state=initialState, action){
       case GET_NAME:
         const arr = state.allCharacters;
         const filtrado = arr.filter(e => e.name.toLowerCase().includes(action.payload.toLowerCase()))
-        console.log("LO FILTRO?", filtrado)
+        
         if(filtrado.length !== 0){
           return{
           ...state,
@@ -44,7 +44,7 @@ export default function rootReducer(state=initialState, action){
         }else{
           alert("Personaje no encontrado!")
         }
-
+        /* falls through */
     default:
       return state;
   }

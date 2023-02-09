@@ -6,14 +6,18 @@ function List() {
     var boolean = useSelector(state => state.getAll)
 
   return (
-    <div>
+    <div class="d-flex flex-column">
     {boolean && allCharacter.length>0 ? allCharacter.map(e => {
         return(
-            <div key={e.id}>
-                <h1 key={e.id}>{e.name}</h1>
-            </div>
+                <ul class="list-group">
+                  <li class="list-group-item">{e.id}  → nombre:        {e.name}</li>
+                </ul>
+
+            // <div key={e.id}>
+            //     <h1 key={e.id}>{e.name}</h1>
+            // </div>
         )
-    }): <p>La lista esta vacía</p>}
+    }): <p class="text-center">Haga click en el boton "Mostrar todos los personajes" para ver todos</p>}
 
     </div>
   )
